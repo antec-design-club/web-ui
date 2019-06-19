@@ -92,7 +92,7 @@
           </div>
         </div>
 
-        <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>
+        <chart :chart-data="datacollection" :width="chartWidth" :height="chartHeight"></chart>
 
         <h2>Section title</h2>
         <div class="table-responsive">
@@ -229,11 +229,44 @@
 
 <script>
 //import HelloWorld from './components/HelloWorld.vue'
+import Chart from './components/Chart.vue'
 
 export default {
   name: 'app',
   components: {
     //HelloWorld
+    Chart
+  },
+  data () {
+    return {
+      datacollection: null,
+      chartWidth: 900,
+      chartHeight: 250,
+    }
+  },
+  mounted () {
+    this.fillData()
+  },
+  methods: {
+    fillData () {
+      this.datacollection = {
+        labels: [this.getRandomInt(), this.getRandomInt()],
+        datasets: [
+          {
+            label: 'Data One',
+            backgroundColor: '#f87979',
+            data: [this.getRandomInt(), this.getRandomInt()]
+          }, {
+            label: 'Data One',
+            backgroundColor: '#f87979',
+            data: [this.getRandomInt(), this.getRandomInt()]
+          }
+        ]
+      }
+    },
+    getRandomInt () {
+      return Math.floor(Math.random() * (50 - 5 + 1)) + 5
+    }
   }
 }
 </script>
