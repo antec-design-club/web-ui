@@ -4,15 +4,15 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "build": "vue-cli-service build"
   },
   "dependencies": {
     "bootstrap-vue": "^2.0.0-rc.19",
     "chart.js": "^2.8.0",
     "core-js": "^2.6.5",
     "vue": "^2.6.10",
-    "vue-chartjs": "^3.4.2"
+    "vue-chartjs": "^3.4.2",
+    "vue-mqtt": "^2.0.3"
   },
   "devDependencies": {
     "@babel/polyfill": "^7.4.4",
@@ -40,7 +40,9 @@
       "plugin:vue/essential",
       "eslint:recommended"
     ],
-    "rules": {},
+    "rules": {
+      "vue/require-v-for-key": "off"
+    },
     "parserOptions": {
       "parser": "babel-eslint"
     }
